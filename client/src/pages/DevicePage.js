@@ -13,46 +13,119 @@ const DevicePage = () => {
     }, [id]); 
 
     return (
-        <Container className='mt-3'>
-            <Row>
-                <Col md={4}>
-                    <Image width={300} height={300} src={process.env.REACT_APP_API_URL + device.img}/>
-                </Col>
-                <Col md={4}>
-                    <Row className='d-flex flex-column align-items-center'>
-                        <h2>{device.name}</h2>
-                        <div
-                            className='d-flex align-items-center justify-content-center'
-                            style={{
-                                background: `url(${bigStar}) 
-                                no-repeat center center`, 
-                                width: 240, height: 240, backgroundSize: 'cover',
-                                fontSize: 64
-                            }}
-                        >
-                            {device.rating}
-                        </div>
-                    </Row>
-                </Col>
-            </Row>
-            <Col md={4}>
-                <Card
-                    className='d-flex flex-column align-items-center justify-content-around'
-                    style={{width: 300, height: 300, fontSize: 32, border: '5px solid lightgray'}}
-                >
-                    <h3>От: {device.price} руб.</h3>
-                    <Button variant={"outline-dark"}>Добавить в корзину</Button>
-                </Card>
+        <Container className="mt-3 container-custom">
+        <Row>
+            <Col md={4} className="col-device-image">
+            <Image 
+            width={300} 
+            height={300}
+            className='device-image'
+            src={process.env.REACT_APP_API_URL + device.img} />
             </Col>
-            <Row className='d-flex flex-column m-3'>
-                <h1>Характеристики</h1>
-                {device.info.map((info, index) => 
-                    <Row key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding: 10}}>
-                        {info.title}: {info.description}
-                    </Row>
-                )}
+            <Col md={4}>
+            <Card className="device-card">
+                <h2>{device.name}</h2>
+                <h3>от {device.price} руб</h3>
+                <div
+                className="d-flex justify-content-center"
+                >
+                {device.rating}
+                </div>
+                <Button className='device-card_btn'>Добавить в корзину</Button>
+            </Card>
+            </Col>
+        </Row>
+        <Row className="device-specs">
+            <h1>Характеристики</h1>
+            {device.info.map((info, index) => (
+            <Row key={info.id} className="spec-row">
+                {info.title}: {info.description}
             </Row>
+            ))}
+        </Row>
         </Container>
+
+        //  2 версия от GPT
+        // <Container className="mt-3">
+        // <Row>
+        //     <Col md={4} className="col-device-image">
+        //         <Image width={300} 
+        //         height={300}
+        //         className="device-image"
+        //         src={process.env.REACT_APP_API_URL + device.img} />
+        //     </Col>
+        //     <Col md={4} className="device-info">
+        //     <Row className="d-flex flex-column align-items-center">
+            
+        //         {/* <div
+        //         className="rating"
+        //         style={{
+        //             // background: `url(${}) no-repeat center center`,
+        //             backgroundSize: 'cover'
+        //         }}
+        //         >
+        //         {device.rating}
+        //         </div> */}
+        //     </Row>
+        //     </Col>
+        //     <Col md={4} className="device-card">
+        //     <h2>{device.name}</h2>
+        //     <h3>От: {device.price} руб.</h3>
+        //     <Button>Добавить в корзину</Button>
+
+
+        //     </Col>
+        // </Row>
+        // <Row className="d-flex flex-column m-3 device-specs">
+        //     <h1>Характеристики</h1>
+        //     {device.info.map((info, index) => (
+        //     <Row key={info.id} className="spec-row">
+        //         {info.title}: {info.description}
+        //     </Row>
+        //     ))}
+        // </Row>
+        // </Container>
+
+        // <Container className='mt-3'>
+        //     <Row>
+        //         <Col md={4}>
+        //             <Image width={300} height={300} src={process.env.REACT_APP_API_URL + device.img}/>
+        //         </Col>
+        //         <Col md={4}>
+        //             <Row className='d-flex flex-column align-items-center'>
+        //                 <h2>{device.name}</h2>
+        //                 <div
+        //                     className='d-flex align-items-center justify-content-center'
+        //                     style={{
+        //                         background: `url(${bigStar}) 
+        //                         no-repeat center center`, 
+        //                         width: 240, height: 240, backgroundSize: 'cover',
+        //                         fontSize: 64
+        //                     }}
+        //                 >
+        //                     {device.rating}
+        //                 </div>
+        //             </Row>
+        //         </Col>
+        //     </Row>
+        //     <Col md={4}>
+        //         <Card
+        //             className='d-flex flex-column align-items-center justify-content-around'
+        //             style={{width: 300, height: 300, fontSize: 32, border: '5px solid lightgray'}}
+        //         >
+        //             <h3>От: {device.price} руб.</h3>
+        //             <Button variant={"outline-dark"}>Добавить в корзину</Button>
+        //         </Card>
+        //     </Col>
+        //     <Row className='d-flex flex-column m-3'>
+        //         <h1>Характеристики</h1>
+        //         {device.info.map((info, index) => 
+        //             <Row key={info.id} style={{background: index % 2 === 0 ? 'lightgray' : 'transparent', padding: 10}}>
+        //                 {info.title}: {info.description}
+        //             </Row>
+        //         )}
+        //     </Row>
+        // </Container>
     );
 };
 

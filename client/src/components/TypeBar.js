@@ -6,18 +6,24 @@ import ListGroup from 'react-bootstrap/ListGroup';
 const TypeBar = observer(() => { 
     const {device} = useContext(Context)
     return (
-        <ListGroup>
 
-            {device.types.map(type => 
-                <ListGroup.Item 
-                    style={{cursor: 'pointer'}}
-                    active={type.id === device.selectedType.id}
-                    onClick={() => device.setSelectedType(type)}
-                    key={type.id}>
-                    {type.name}
-                </ListGroup.Item>
-            )}
-        </ListGroup>
+        <>
+            <h2 className='heading-typebar'>Фильтры</h2>
+
+            <ListGroup className='typebar'>
+
+                {device.types.map(type => 
+                    <ListGroup.Item 
+                        className='typebar-item'
+                        active={type.id === device.selectedType.id}
+                        onClick={() => device.setSelectedType(type)}
+                        key={type.id}>
+                            
+                        {type.name}
+                    </ListGroup.Item>
+                )}
+            </ListGroup>
+        </>
     );
 });
 

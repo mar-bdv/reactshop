@@ -12,24 +12,21 @@ const Admin = () => {
     return (
         <Container className='d-flex flex-column'>
             <Button  
-                variant={"outline-dark"} 
-                className='mt-2'
+                className='mt-2 admin-btns'
                 onClick={() => setTypeVisible(true)}
             >
                     Добавить тип
             </Button>
 
             <Button 
-                variant={"outline-dark"} 
-                className='mt-2'
+                className='mt-2 admin-btns'
                 onClick={() => setBrandVisible(true)}
             >
                     Добавить бренд
             </Button>
             
             <Button  
-                variant={"outline-dark"} 
-                className='mt-2'
+                className='mt-2 admin-btns'
                 onClick={() => setDeviceVisible(true)}
             >
                     Добавить устройство
