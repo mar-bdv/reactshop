@@ -10,15 +10,23 @@ import { Context } from '..';
 import { fetchBrands, fetchDevices, fetchTypes } from '../http/deviceAPI';
 import Pages from '../components/Pages';
 
+// полное отображение главной страницы, и фильтры, и товары и пагинация 
+
 const Shop = observer(() => { 
     const {device} = useContext(Context)
     useEffect(() => {
-        fetchTypes().then(data => device.setTypes(data));
-        fetchBrands().then(data => device.setBrands(data));
-        fetchDevices(null, null, 1,  ).then(data => { // (null, null, 1, и число отображаемых товаров)
-            device.setDevices(data.rows); 
-            device.setTotalCount(data.count);
-        });
+        try {
+            fetchTypes().then(data => device.setTypes(data));
+            fetchBrands().then(data => device.setBrands(data));
+            fetchDevices(null, null, 1,  ).then(data => { // (null, null, 1, и число отображаемых товаров)
+                device.setDevices(data.rows); 
+                device.setTotalCount(data.count);
+            });
+        } catch (error) {
+            console.log("ошибка в Shop")
+        }
+    
+        
     }, [device]); 
 
     useEffect(() => {
@@ -31,16 +39,14 @@ const Shop = observer(() => {
     return (
         <Container>
             <Row>
-                <Col>
+                <Col className='col-type_brand'>
                     <TypeBar/>
                     <BrandBar/>
-
+                    
                 </Col>
-                <Col>
+                <Col className='col-devices'>
                     <DeviceList/>
                     <Pages/>
-                </Col>
-                <Col>
                     
                 </Col>
             </Row>

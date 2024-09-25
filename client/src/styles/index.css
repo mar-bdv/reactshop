@@ -6,7 +6,10 @@ body {
     --text-color: #E7E7E7;
     --main-color: #B5F209;
 
+}
 
+.navbar-btn {
+    margin: 0px 5px;
 }
 
 .myapp-card-bg {
@@ -16,6 +19,11 @@ body {
 
 .myapp-heading {
     color: var(--main-color);
+}
+
+.basket-btn {
+    background-color: #acf50a;
+    color: black;
 }
 
 .myapp-input-email, .myapp-input-password {
@@ -109,7 +117,7 @@ body {
     background-color: transparent; 
 }
 
-.admin-navbar {
+.admin-navbar, .admin-navbar {
     font-weight: 600;
     margin: 5px;
     background-color: var(--main-color);
@@ -119,7 +127,9 @@ body {
 }
 
 
-.admin-navbar:hover, .admin-navbar:focus {
+.admin-navbar:hover, .admin-navbar:focus
+.admin-navbar:hover, .admin-navbar:focus
+{
     background-color: #A5DC0B !important;
     color: #000000 !important;
 
@@ -449,4 +459,12 @@ body {
 
 .device-specs .spec-row:nth-child(even) {
     background-color: #1e1e1e;
+}
+
+.col-type_brand {
+    flex: 1 0 0%;
+}
+.col-devices {
+    flex: 3 0 0%;
+
 }

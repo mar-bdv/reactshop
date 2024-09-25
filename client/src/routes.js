@@ -6,6 +6,8 @@ import Shop from "./pages/Shop";
 import Auth from "./pages/Auth";
 import DevicePage from "./pages/DevicePage";
 
+// настройка роутов, админ, корзина, и пути 
+
 export const authRoutes = [
     {
         path: ADMIN_ROUTE,

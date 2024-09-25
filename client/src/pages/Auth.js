@@ -9,16 +9,36 @@ import {login, registration} from "../http/userAPI";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 
+// настройка для входа и регистрации на специальной странице
 
 const Auth = observer(() => {
-
-
-    const {user} = useContext(Context)
+    const { user } = useContext(Context)
     const location = useLocation()
     const history = useNavigate()
     const isLogin = location.pathname === LOGIN_ROUTE
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [role, setRole] = useState('');
+
+    // const click = async () => {
+    //     try {
+    //         let data;
+    //         if (isLogin) {
+    //             data = await login(email, password);
+    //         } else {
+    //             // eslint-disable-next-line
+    //             data = await registration(email, password);
+    //         }
+    //         user.setUser(user)
+    //         user.setIsAuth(true)
+    //         history(SHOP_ROUTE)
+    //     } catch (e) {
+    //         // alert(e.response.data.message)
+    //         console.log("ошибочка в Auth");
+    //     }
+
+    // }
+
 
     const click = async () => {
         try {
@@ -26,17 +46,21 @@ const Auth = observer(() => {
             if (isLogin) {
                 data = await login(email, password);
             } else {
-                // eslint-disable-next-line
                 data = await registration(email, password);
             }
+            console.log("auth role:", data.role)
+            console.log("user from auth:", user)
             user.setUser(user)
             user.setIsAuth(true)
+            user.setRole(data.role)
             history(SHOP_ROUTE)
-        } catch (e) {
-            // alert(e.response.data.message)
-            console.log("ошибочка в Auth");
-        }
+            //navigate(SHOP_ROUTE);
 
+        } catch (e) {
+            console.log(e.response ? e.response.data : e.message);
+
+            alert("ошибка в Auth")
+        }
     }
 
     return (
@@ -60,33 +84,17 @@ const Auth = observer(() => {
                         onChange={e => setPassword(e.target.value)}
                         type="password"
                     />
-                    {/* <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
-                        {isLogin ?
-                            <div>
-                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
-                            </div>
-                            :
-                            <div>
-                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
-                            </div>
-                        }
-                        <Button
-                            variant={"outline-success"}
-                            onClick={click}
-                        >
-                            {isLogin ? 'Войти' : 'Регистрация'}
-                        </Button>
-                    </Row> */}
+                
                     <Row className="mt-3 d-flex align-items-center">
                         <Col xs={8} className='myapp-noaccount'>
                             {isLogin ?
-                            <div>
-                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE} className='myapp-noaccount-link'>Зарегистрируйся!</NavLink>
-                            </div>
-                            :
-                            <div>
-                                Есть аккаунт? <NavLink to={LOGIN_ROUTE} className='myapp-noaccount-link'>Войдите!</NavLink>
-                            </div>
+                                <div>
+                                    Нет аккаунта? <NavLink to={REGISTRATION_ROUTE} className='myapp-noaccount-link'>Зарегистрируйся!</NavLink>
+                                </div>
+                                :
+                                <div>
+                                    Есть аккаунт? <NavLink to={LOGIN_ROUTE} className='myapp-noaccount-link'>Войдите!</NavLink>
+                                </div>
                             }
                         </Col>
                         <Col xs={4} className="d-flex justify-content-end align-items-center">
@@ -106,3 +114,21 @@ const Auth = observer(() => {
 });
 
 export default Auth;
+
+        {/* <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
+                        {isLogin ?
+                            <div>
+                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
+                            </div>
+                            :
+                            <div>
+                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
+                            </div>
+                        }
+                        <Button
+                            variant={"outline-success"}
+                            onClick={click}
+                        >
+                            {isLogin ? 'Войти' : 'Регистрация'}
+                        </Button>
+                    </Row> */}

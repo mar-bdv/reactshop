@@ -1,11 +1,13 @@
-const sequelize = require('../db')
-const {DataTypes} = require('sequelize')
+const sequelize = require('../db');
+const {DataTypes}  = require('sequelize');
+
+// свойства для всех данных, юзер, корзина, устройства, тип, бренд и т.д.
 
 const User = sequelize.define('user', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-    email: {type: DataTypes.STRING, unique: true,},
+    email: {type: DataTypes.STRING, unique: true},
     password: {type: DataTypes.STRING},
-    role: {type: DataTypes.STRING, defaultValue: "USER"},
+    role: {type: DataTypes.STRING, defaultValue: "USER"}, // USER default value
 })
 
 const Basket = sequelize.define('basket', {
@@ -47,8 +49,8 @@ const DeviceInfo = sequelize.define('device_info', {
 
 const TypeBrand = sequelize.define('type_brand', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
 
+})
 
 User.hasOne(Basket)
 Basket.belongsTo(User)
@@ -71,14 +73,14 @@ Rating.belongsTo(Device)
 Device.hasMany(BasketDevice)
 BasketDevice.belongsTo(Device)
 
-Device.hasMany(DeviceInfo, {as: 'info'});
+Device.hasMany(DeviceInfo, {as: 'info'})
 DeviceInfo.belongsTo(Device)
 
-Type.belongsToMany(Brand, {through: TypeBrand })
-Brand.belongsToMany(Type, {through: TypeBrand })
+Type.belongsToMany(Brand, {through: TypeBrand})
+Brand.belongsToMany(Type, {through: TypeBrand})
 
 module.exports = {
-    User,
+    User, 
     Basket,
     BasketDevice,
     Device,
@@ -88,8 +90,6 @@ module.exports = {
     TypeBrand,
     DeviceInfo
 }
-
-
 
 // const sequelize = require('../db')
 // const {DataTypes} = require('sequelize')

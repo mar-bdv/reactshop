@@ -1,5 +1,7 @@
 import React from 'react';
 
+// корзина, настроить
+
 const Basket = () => { 
     return (
         <div>

@@ -3,6 +3,8 @@ import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {Card, ListGroup, Row} from "react-bootstrap";
 
+// Фильтрация по брендам
+
 const BrandBar = observer(() => {
     const {device} = useContext(Context)
 

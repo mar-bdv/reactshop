@@ -3,11 +3,13 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const {User, Basket} = require('../models/models')
 
+// создание корзины для каждого пользователя, а также регистрация и выдача роли 
+
 const generateJwt = (id, email, role) => {
     return jwt.sign(
         {id, email, role},
         process.env.SECRET_KEY,
-        {expiresIn: '24h'}
+        {expiresIn: '18h'}
     )
 }
 
@@ -40,6 +42,7 @@ class UserController {
             return next(ApiError.internal('Указан неверный пароль'))
         }
         const token = generateJwt(user.id, user.email, user.role)
+        
         return res.json({token})
     }
 

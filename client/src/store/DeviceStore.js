@@ -1,5 +1,6 @@
+import { makeAutoObservable } from "mobx";
 
-import {makeAutoObservable} from "mobx";
+// не совсем понимаю, но что-то с связанное с товарами
 
 export default class DeviceStore {
     constructor() {

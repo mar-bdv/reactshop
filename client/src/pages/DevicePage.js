@@ -4,12 +4,20 @@ import bigStar from '../assets/bigStar.png';
 import { useParams } from 'react-router-dom';
 import { fetchOneDevice } from '../http/deviceAPI';
 
+// страница для описания товара ( по id )
+
+
 const DevicePage = () => { 
     
     const [device, setDevice] = useState({info: []});
     const {id} = useParams();
     useEffect(() => {
-        fetchOneDevice(id).then(data => setDevice(data))
+        try {
+            fetchOneDevice(id).then(data => setDevice(data))
+
+        } catch (error) {
+            console.log(error, "ошибка в Device Page")
+        }
     }, [id]); 
 
     return (
@@ -25,11 +33,11 @@ const DevicePage = () => {
             <Col md={4}>
             <Card className="device-card">
                 <h2>{device.name}</h2>
-                <h3>от {device.price} руб</h3>
+                <h3>{device.price}  ₽</h3>
                 <div
                 className="d-flex justify-content-center"
                 >
-                {device.rating}
+                    {device.rating}
                 </div>
                 <Button className='device-card_btn'>Добавить в корзину</Button>
             </Card>

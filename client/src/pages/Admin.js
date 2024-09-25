@@ -4,6 +4,8 @@ import CreateBrand from '../components/modals/CreateBrand';
 import CreateDevice from '../components/modals/CreateDevice';
 import CreateType from '../components/modals/CreateType';
 
+// админ панель, добавить тип, бренд и товары
+
 const Admin = () => { 
     const [brandVisible, setBrandVisible] = useState(false)
     const [typeVisible, setTypeVisible] = useState(false)
@@ -31,9 +33,11 @@ const Admin = () => {
             >
                     Добавить устройство
             </Button>
+
             <CreateBrand show={brandVisible} onHide={() => setBrandVisible(false)}/>
             <CreateDevice show={deviceVisible} onHide={() => setDeviceVisible(false)}/>
             <CreateType show={typeVisible} onHide={() => setTypeVisible(false)}/>
+            
         </Container>
     );
 };

@@ -3,6 +3,8 @@ import React, { useContext } from "react";
 import { Context } from "..";
 import { Pagination } from "react-bootstrap";
 
+// пагинация настроена здесь
+
 const Pages = observer(() => {
     const {device} = useContext(Context);
     const pageCount = Math.ceil(device.totalCount / device.limit)
@@ -23,7 +25,7 @@ const Pages = observer(() => {
                     active={device.page === page}
                     onClick={() => device.setPage(page)}
                 >
-                    {page}
+                    {page} 
                 </Pagination.Item>
             )}
         </Pagination>

@@ -7,6 +7,8 @@ import { Context } from ".";
 import { check } from "./http/userAPI";
 import { Spinner } from "react-bootstrap";
 
+// тут должен быть спиннер , но его нет
+
 const App = observer(() => {
   const {user} = useContext(Context);
   const [loading, setLoading] = useState(true);
@@ -30,7 +32,7 @@ const App = observer(() => {
 
   return (
     <BrowserRouter>
-      <NavBar/>
+      <NavBar />
       <AppRouter />
     </BrowserRouter>
   );

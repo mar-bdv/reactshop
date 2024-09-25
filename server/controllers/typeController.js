@@ -1,6 +1,7 @@
 const {Type} = require('../models/models')
 const ApiError = require('../error/ApiError')
 
+// Создание типа
 
 class TypeController {
     async create(req, res) {
