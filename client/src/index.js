@@ -4,6 +4,7 @@ import App from './App';
 import UserStore from './store/UserStore';
 import DeviceStore from './store/DeviceStore';
 import './styles/index.css'
+import './styles/devicepage.css'
 
 export const Context = createContext(null);
 

@@ -1,15 +1,14 @@
-import React, {useContext, useState} from 'react';
-import {Col, Container, Form} from "react-bootstrap";
+import React, { useContext, useState } from 'react';
+import { Col, Container, Form } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
-import {NavLink, useLocation, useNavigate} from "react-router-dom";
-import {LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE} from "../utils/consts";
-import {login, registration} from "../http/userAPI";
-import {observer} from "mobx-react-lite";
-import {Context} from "../index";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { LOGIN_ROUTE, REGISTRATION_ROUTE, SHOP_ROUTE } from "../utils/consts";
+import { login, registration } from "../http/userAPI";
+import { observer } from "mobx-react-lite";
+import { Context } from "../index";
 
-// настройка для входа и регистрации на специальной странице
 
 const Auth = observer(() => {
     const { user } = useContext(Context)
@@ -19,25 +18,6 @@ const Auth = observer(() => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [role, setRole] = useState('');
-
-    // const click = async () => {
-    //     try {
-    //         let data;
-    //         if (isLogin) {
-    //             data = await login(email, password);
-    //         } else {
-    //             // eslint-disable-next-line
-    //             data = await registration(email, password);
-    //         }
-    //         user.setUser(user)
-    //         user.setIsAuth(true)
-    //         history(SHOP_ROUTE)
-    //     } catch (e) {
-    //         // alert(e.response.data.message)
-    //         console.log("ошибочка в Auth");
-    //     }
-
-    // }
 
 
     const click = async () => {
@@ -53,18 +33,13 @@ const Auth = observer(() => {
             } else {
                 data = await registration(email, password);
             }
-            console.log("auth role:", data.role)
-            console.log("user from auth:", user)
             user.setUser(user)
             user.setIsAuth(true)
             user.setRole(data.role)
             history(SHOP_ROUTE)
-            //navigate(SHOP_ROUTE);
-
         } catch (e) {
-             // Проверяем, пришел ли ответ от сервера с полем data.message
             if (e.response && e.response.data && e.response.data.message) {
-                alert(e.response.data.message); // Выводим сообщение из контроллера
+                alert(e.response.data.message);
             } else {
                 alert("Произошла ошибка. Попробуйте еще раз.");
             }
@@ -122,21 +97,3 @@ const Auth = observer(() => {
 });
 
 export default Auth;
-
-        {/* <Row className="d-flex justify-content-between mt-3 pl-3 pr-3">
-                        {isLogin ?
-                            <div>
-                                Нет аккаунта? <NavLink to={REGISTRATION_ROUTE}>Зарегистрируйся!</NavLink>
-                            </div>
-                            :
-                            <div>
-                                Есть аккаунт? <NavLink to={LOGIN_ROUTE}>Войдите!</NavLink>
-                            </div>
-                        }
-                        <Button
-                            variant={"outline-success"}
-                            onClick={click}
-                        >
-                            {isLogin ? 'Войти' : 'Регистрация'}
-                        </Button>
-                    </Row> */}

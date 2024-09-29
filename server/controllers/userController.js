@@ -1,9 +1,8 @@
 const ApiError = require('../error/ApiError');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {User, Basket, BasketDevice} = require('../models/models')
+const { User, Basket } = require('../models/models')
 
-// создание корзины для каждого пользователя, а также регистрация и выдача роли 
 
 const generateJwt = (id, email, role) => {
     return jwt.sign(
@@ -55,28 +54,3 @@ class UserController {
 }
 
 module.exports = new UserController()
-
-
-    // async addToBasket(req, res) {
-    //     const { userId, deviceId, quantity } = req.body;
-        
-    //     // Поиск корзины пользователя
-    //     let basket = await Basket.findOne({ where: { userId } });
-    //     if (!basket) {
-    //         basket = await Basket.create({ userId });
-    //     }
-        
-    //     // Поиск товара в корзине
-    //     let basketDevice = await BasketDevice.findOne({
-    //         where: { basketId: basket.id, deviceId }
-    //     });
-        
-    //     if (basketDevice) {
-    //         basketDevice.quantity += quantity;
-    //         await basketDevice.save();
-    //     } else {
-    //         await BasketDevice.create({ basketId: basket.id, deviceId, quantity });
-    //     }
-        
-    //     return res.json({ message: 'Товар добавлен в корзину' });
-    // }

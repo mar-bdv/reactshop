@@ -4,8 +4,6 @@ import { Context } from "../..";
 import { createDevice, fetchBrands, fetchTypes } from "../../http/deviceAPI";
 import { observer } from "mobx-react-lite";
 
-// Здесь создается товар 
-
 
 const CreateDevice = observer(({ show, onHide }) => {
     const {device} = useContext(Context)

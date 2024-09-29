@@ -1,7 +1,5 @@
 import { makeAutoObservable } from "mobx";
 
-// не совсем понимаю, но что-то с связанное с товарами
-
 export default class DeviceStore {
     constructor() {
         this._types = []

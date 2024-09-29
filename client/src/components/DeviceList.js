@@ -4,8 +4,6 @@ import { Context } from '..';
 import { Row } from 'react-bootstrap';
 import DeviceItem from './DeviceItem';
 
-// отображение товаров на странице, можно через css настроить красоту
-
 const DeviceList = observer(() => { 
     const { device } = useContext(Context)
     return (

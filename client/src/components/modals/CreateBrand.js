@@ -3,8 +3,6 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { createBrand } from "../../http/deviceAPI";
 
 
-// Здесь создается бренд 
-
 const CreateBrand = ({show, onHide}) => {
 
     const [value, setValue] = useState('')

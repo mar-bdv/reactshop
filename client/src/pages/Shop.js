@@ -10,15 +10,13 @@ import { Context } from '..';
 import { fetchBrands, fetchDevices, fetchTypes } from '../http/deviceAPI';
 import Pages from '../components/Pages';
 
-// полное отображение главной страницы, и фильтры, и товары и пагинация 
-
 const Shop = observer(() => { 
     const {device} = useContext(Context)
     useEffect(() => {
         try {
             fetchTypes().then(data => device.setTypes(data));
             fetchBrands().then(data => device.setBrands(data));
-            fetchDevices(null, null, 1,  ).then(data => { // (null, null, 1, и число отображаемых товаров)
+            fetchDevices(null, null, 1,  ).then(data => { 
                 device.setDevices(data.rows); 
                 device.setTotalCount(data.count);
             });
@@ -42,12 +40,10 @@ const Shop = observer(() => {
                 <Col className='col-type_brand'>
                     <TypeBar/>
                     <BrandBar/>
-                    
                 </Col>
                 <Col className='col-devices'>
                     <DeviceList/>
                     <Pages/>
-                    
                 </Col>
             </Row>
         </Container>

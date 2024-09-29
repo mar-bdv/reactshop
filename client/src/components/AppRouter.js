@@ -5,8 +5,6 @@ import { SHOP_ROUTE } from '../utils/consts';
 import { Context } from '..';
 import { observer } from 'mobx-react-lite';
 
-//
-
 const AppRouter = observer(() => { 
     const {user} = useContext(Context)
 

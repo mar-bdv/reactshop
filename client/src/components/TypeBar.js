@@ -3,12 +3,9 @@ import React, { useContext } from 'react';
 import { Context } from '..';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-// фильтрация по типу товаров (types)
-
 const TypeBar = observer(() => { 
     const {device} = useContext(Context)
     return (
-
         <>
             <h2 className='heading-typebar'>Фильтры</h2>
             <hr className='filters-hr'/>

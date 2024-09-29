@@ -1,41 +1,34 @@
 import { $authHost, $host } from './index'
-import { jwtDecode } from 'jwt-decode';  // Изменение здесь
-
-
-// здесь настроена регистрация, авторизация и также выдача токена
+import { jwtDecode } from 'jwt-decode';  
 
 export const registration = async (email, password, role) => {
-    const { data } = await $host.post('api/user/registration', {email, password, role: "USER"}) // РОЛЬ ЮЗЕР ИЛИ АДМИН
-    localStorage.setItem('token', data.token)
+    const { data } = await $host.post('api/user/registration', {email, password, role: "USER"});
+    localStorage.setItem('token', data.token);
     return jwtDecode(data.token); 
 }
 
 export const login = async (email, password, role) => {
-    const { data } = await $host.post('api/user/login', {email, password, role})
+    const { data } = await $host.post('api/user/login', {email, password, role});
     localStorage.setItem('token', data.token)
     return jwtDecode(data.token);  
 }
 
-//NEW CODE
 export const getUserIdFromToken = () => {
     const token = localStorage.getItem('token');
     if (token) {
         const decodedToken = jwtDecode(token);
-        return decodedToken.id; // возвращает id пользователя из токена
+        return decodedToken.id; 
     }
     return null;
 };
-//NEW CODE
 
 export const check = async () => {
     const token = localStorage.getItem('token');
     if (!token) {
-        // Если токена нет, возвращаем ошибку или просто ничего не делаем
         console.error("Токен отсутствует, пользователь не авторизован");
-        return null; // или верни ошибку
+        return null; 
     }
-
-    // Если токен есть, выполняем запрос
+    
     const { data } = await $authHost.get('api/user/auth');
     localStorage.setItem('token', data.token);
     return jwtDecode(data.token);

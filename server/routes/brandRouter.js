@@ -6,8 +6,6 @@ const checkRole = require('../middleware/checkRoleMiddleware')
 
 router.post('/', checkRole('ADMIN'), brandController.create)
 
-
-//router.post('/', brandController.create)
 router.get('/', brandController.getAll)
 
 

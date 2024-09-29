@@ -5,11 +5,11 @@ body {
     --main-bg-color: #131613;
     --text-color: #E7E7E7;
     --main-color: #B5F209;
-
 }
 
 .navbar-btn {
     margin: 0px 5px;
+    margin-top: 10px;
 }
 
 .myapp-card-bg {
@@ -44,10 +44,10 @@ body {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #1b1b1b; /* Темный фон для контейнера */
-    color: #fff; /* Белый цвет текста */
-    border-radius: 8px; /* Закругленные углы для всего блока */
-    margin-bottom: 20px; /* Отступ между элементами */
+    background-color: #1b1b1b; 
+    color: #fff; 
+    border-radius: 8px; 
+    margin-bottom: 20px; 
     width: 800px;
     margin-top: 30px;
 
@@ -60,9 +60,9 @@ body {
 .basket-img {
     width: 130px;
     height: 130px;
-    border-radius: 12px; /* Закругленные углы для картинки */
-    background-color: #d3d3d3; /* Светло-серый фон для картинок */
-    object-fit: cover; /* Обеспечивает, чтобы изображение сохраняло пропорции */
+    border-radius: 12px; 
+    background-color: #d3d3d3; 
+    object-fit: cover;
     
 }
 
@@ -70,18 +70,18 @@ body {
 .basket-name {
     font-size: 18px;
     font-weight: bold;
-    margin-left: 10px; /* Отступ от изображения */
-    flex-grow: 1; /* Текст занимает всё доступное пространство */
+    margin-left: 10px; 
+    flex-grow: 1; 
 }
 
 .basket-btns_quantity {
     display: flex;
     width: 100px;
     align-items: center;
-    background-color: #1b1b1b; /* Цвет фона */
-    border: 1px solid #fff; /* Белая рамка */
-    border-radius: 20px; /* Закругленные углы */
-    padding: 5px 10px; /* Внутренние отступы */
+    background-color: #1b1b1b; 
+    border: 1px solid #fff;
+    border-radius: 20px;
+    padding: 5px 10px;
 }
 
 .basket-name_btns {
@@ -104,7 +104,7 @@ body {
 }
 
 .basket-btns_quantity button:hover {
-    background-color: #333; /* Темнее при наведении */
+    background-color: #333;
 }
 
 .basket-btns_quantity p {
@@ -116,21 +116,21 @@ body {
 .basket-quantity-price {
     font-size: 18px;
     font-weight: bold;
-    white-space: nowrap; /* Запрещает перенос текста */
+    white-space: nowrap; 
     margin: 5px;
     margin-left: auto;
     align-self: start;
 }
 
 .basket-order {
-    width: 100%; /* Кнопка будет занимать всю ширину родительского контейнера */
-    padding: 10px 0; /* Вертикальные отступы для кнопки */
-    background-color: white; /* Цвет фона (можешь поменять на свой) */
-    color: black; /* Цвет текста */
-    font-size: 15px; /* Размер шрифта */
-    border: none; /* Убираем границы */
-    cursor: pointer; /* Курсор при наведении */
-    text-align: center; /* Выравнивание текста по центру */
+    width: 100%; 
+    padding: 10px 0; 
+    background-color: white; 
+    color: black; 
+    font-size: 15px; 
+    border: none; 
+    cursor: pointer; 
+    text-align: center;
     border-radius: 20px;
     font-weight: bold;
     margin-top: 15px;
@@ -147,13 +147,13 @@ body {
 
 
 .basket-order:active {
-    background-color: #dcdcdc; /* Цвет кнопки при нажатии */
+    background-color: #dcdcdc;
 }
 
 @media (max-width: 540px) {
     .basket-div {
-        flex-direction: column; /* Элементы будут располагаться вертикально */
-        align-items: flex-start; /* Выравнивание по левому краю */
+        flex-direction: column; 
+        align-items: flex-start; 
         padding: 10px;
         width: 350px;
     }
@@ -162,33 +162,32 @@ body {
     }
 
     .basket-img {
-        width: 60px; /* Уменьшение размера изображения для мобильных */
+        width: 60px; 
         height: 60px;
     }
 
     .basket-name {
-        font-size: 16px; /* Уменьшение размера текста */
-        margin: 10px 0; /* Отступы вокруг текста */
+        font-size: 16px; 
+        margin: 10px 0; 
     }
 
     .basket-btns_quantity {
-        width: 100%; /* Кнопки займут всю ширину */
-        justify-content: space-between; /* Равномерное распределение кнопок */
-        padding: 5px; /* Уменьшение внутренних отступов */
+        width: 100%; 
+        justify-content: space-between; 
+        padding: 5px; 
     }
 
     .basket-btns_quantity p {
-        font-size: 14px; /* Уменьшение размера текста */
+        font-size: 14px; 
     }
 
     .basket-quantity-price {
-        font-size: 16px; /* Уменьшение цены */
-        margin-top: 10px; /* Добавление отступа сверху */
-        text-align: right; /* Выравнивание по правому краю */
-        width: 100%; /* Занять всю ширину */
+        font-size: 16px; 
+        margin-top: 10px; 
+        text-align: right; 
+        width: 100%;
     }
 }
-
 
 
 .myapp-input-email, .myapp-input-password {
@@ -322,7 +321,6 @@ body {
     background-color: #A5DC0B !important;
     color: #000000 !important;
 }
-/* CreateDevice.js */
 
 .dropdown-device {
     background-color: var(--main-color);
@@ -432,7 +430,6 @@ body {
 .adding-modal:hover, .adding-modal:focus {
     background-color: #A5DC0B !important;
     color: #000000 !important;
-
 }
 
 /*TypeBar.js*/
@@ -465,7 +462,6 @@ body {
 
 .brandbar {
     border-radius: 10px;
-
 }
 
 .brandbar-item {
@@ -475,38 +471,6 @@ body {
 .brandbar-item:active, .brandbar-item:focus, .brandbar-item:hover, .brandbar-item.active {
     background-color: #A5DC0B !important;
     color: #000000 !important;
-}
-
-.card-deviceitem {
-    background-color: transparent;
-    border: none;
-    width: 200px;
-    margin: 10px;
-}
-
-.img-deviceitem {
-    border-radius: 19px;
-    align-self: center;
-    width: 200px;
-    height: 100%;
-
-}
-
-.name-deviceitem {
-    align-self: center;
-    color: white;
-    margin: 7px 5px;
-    font-size: 16px;
-
-}
-
-.bigdiv_rating-deviceitem {
-    align-self: center;
-
-}
-
-.div_rating-deviceitem {
-    color: var(--main-color);
 }
 
 
@@ -524,7 +488,6 @@ body {
 
 .btn-deviceitem:active, .btn-deviceitem:focus {
     background-color: rgb(223, 223, 223) !important;
-
 }
 
 .btn-deviceitem:hover {
@@ -542,133 +505,17 @@ body {
     border-color: #2e7d32 !important;
 }
 
-/* Стили для контейнера изображения */
-.col-device-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.device-image {
-    border-radius: 20px;
-}
-
-
-  /* Стили для контейнера информации */
-.device-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    background-color: #121212;
-    color: #b0b0b0;
-    padding: 20px;
-}
-
-.device-info h2 {
-    color: #8bc34a;
-}
-
-.device-info .rating {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #1e1e1e;
-    width: 240px;
-    height: 240px;
-    font-size: 64px;
-    border-radius: 10px;
-}
-
-  /* Стили для карточки */
-.device-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    background-color: #1e1e1e;
-    color: #8bc34a;
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    border-radius: 10px;
-    border: none;
-}
-
-.device-card h3 {
-    margin: 0;
-}
-
-.device-card button {
-    background-color: #fff;
-    color: #000;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-}
-
-/* .device-card button:hover,  .device-card button.active, .device-card button:focus{
-    background-color: #8bc34a;
-    color: #fff;
-} */
-
-.device-card_btn:hover {
-    background-color: #8bc34a;
-    color: #fff;
-}
-
-  /* Стили для характеристик */
-.device-specs {
-    background-color: #121212;
-    color: #ffffff;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-.device-specs .spec-row {
-    padding: 20px;
-}
-
-.spec-row__span {
-    font-weight: 600;
-}
-
 .col-type_brand {
     flex: 1 0 0%;
 }
+
 .col-devices {
     flex: 3 0 0%;
-
-}
-
-
-/* DevicePage.js */
-.devicepage_name {
-    font-size: 20px;
-}
-
-.devicepage_price {
-    color: white;
+    margin-top: 20px;
 }
 
 .filters-hr {
     color: white;
-}
-
-/* .card-deviceitem {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px; /* расстояние между карточками 
-}
-
-.img-deviceitem {
-    justify-self: center;
-} */
-
-.img-name-device {
-    justify-content: space-around;
-    align-items: center;
 }
 
 .no-products-message {
