@@ -10,13 +10,28 @@ const User = sequelize.define('user', {
     role: {type: DataTypes.STRING, defaultValue: "USER"}, // USER default value
 })
 
-const Basket = sequelize.define('basket', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
+// const Basket = sequelize.define('basket', {
+//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 
-const BasketDevice = sequelize.define('basket_device', {
+// })
+
+// const BasketDevice = sequelize.define('basket_device', {
+//     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+//     quantity: {type: DataTypes.INTEGER, defaultValue: 1}  // Количество товара
+
+// })
+
+const Basket = sequelize.define('baskets', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
+    userId: {type: DataTypes.INTEGER, allowNull: false}
+});
+
+const BasketDevice = sequelize.define('basket_devices', {
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    quantity: {type: DataTypes.INTEGER, defaultValue: 1},
+    basketId: {type: DataTypes.INTEGER, allowNull: false},
+    deviceId: {type: DataTypes.INTEGER, allowNull: false}
+});
 
 const Device = sequelize.define('device', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},

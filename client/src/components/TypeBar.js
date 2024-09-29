@@ -10,7 +10,8 @@ const TypeBar = observer(() => {
     return (
 
         <>
-            <h2 className='heading-typebar'>Фильтр</h2>
+            <h2 className='heading-typebar'>Фильтры</h2>
+            <hr className='filters-hr'/>
 
             <ListGroup className='typebar'>
 

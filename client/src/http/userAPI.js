@@ -1,6 +1,7 @@
 import { $authHost, $host } from './index'
 import { jwtDecode } from 'jwt-decode';  // Изменение здесь
 
+
 // здесь настроена регистрация, авторизация и также выдача токена
 
 export const registration = async (email, password, role) => {
@@ -15,11 +16,16 @@ export const login = async (email, password, role) => {
     return jwtDecode(data.token);  
 }
 
-// export const check = async () => {
-//     const { data } = await $authHost.get('api/user/auth')
-//     localStorage.setItem('token', data.token)
-//     return jwtDecode(data.token);  
-// }
+//NEW CODE
+export const getUserIdFromToken = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        const decodedToken = jwtDecode(token);
+        return decodedToken.id; // возвращает id пользователя из токена
+    }
+    return null;
+};
+//NEW CODE
 
 export const check = async () => {
     const token = localStorage.getItem('token');

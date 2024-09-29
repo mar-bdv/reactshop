@@ -26,6 +26,171 @@ body {
     color: black;
 }
 
+.basket-heading {
+    color: #acf50a;
+}
+
+.basket-head__price {
+    color: #ffffff;
+}
+
+
+.basket_main {
+    margin-left: 30px;
+    width: 800px;
+}
+
+.basket-div {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #1b1b1b; /* Темный фон для контейнера */
+    color: #fff; /* Белый цвет текста */
+    border-radius: 8px; /* Закругленные углы для всего блока */
+    margin-bottom: 20px; /* Отступ между элементами */
+    width: 800px;
+    margin-top: 30px;
+
+}
+
+.basket-head__div {
+    margin-top: 30px;
+}
+
+.basket-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 12px; /* Закругленные углы для картинки */
+    background-color: #d3d3d3; /* Светло-серый фон для картинок */
+    object-fit: cover; /* Обеспечивает, чтобы изображение сохраняло пропорции */
+    
+}
+
+
+.basket-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 10px; /* Отступ от изображения */
+    flex-grow: 1; /* Текст занимает всё доступное пространство */
+}
+
+.basket-btns_quantity {
+    display: flex;
+    width: 100px;
+    align-items: center;
+    background-color: #1b1b1b; /* Цвет фона */
+    border: 1px solid #fff; /* Белая рамка */
+    border-radius: 20px; /* Закругленные углы */
+    padding: 5px 10px; /* Внутренние отступы */
+}
+
+.basket-name_btns {
+    margin: 20px;
+}
+
+.basket-btns_quantity button {
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basket-btns_quantity button:hover {
+    background-color: #333; /* Темнее при наведении */
+}
+
+.basket-btns_quantity p {
+    margin: 0 10px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.basket-quantity-price {
+    font-size: 18px;
+    font-weight: bold;
+    white-space: nowrap; /* Запрещает перенос текста */
+    margin: 5px;
+    margin-left: auto;
+    align-self: start;
+}
+
+.basket-order {
+    width: 100%; /* Кнопка будет занимать всю ширину родительского контейнера */
+    padding: 10px 0; /* Вертикальные отступы для кнопки */
+    background-color: white; /* Цвет фона (можешь поменять на свой) */
+    color: black; /* Цвет текста */
+    font-size: 15px; /* Размер шрифта */
+    border: none; /* Убираем границы */
+    cursor: pointer; /* Курсор при наведении */
+    text-align: center; /* Выравнивание текста по центру */
+    border-radius: 20px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.basket_empty-text {
+    color: white;
+}
+
+.navbar-btn-three {
+    margin: 5px;
+}
+
+
+.basket-order:active {
+    background-color: #dcdcdc; /* Цвет кнопки при нажатии */
+}
+
+@media (max-width: 540px) {
+    .basket-div {
+        flex-direction: column; /* Элементы будут располагаться вертикально */
+        align-items: flex-start; /* Выравнивание по левому краю */
+        padding: 10px;
+        width: 350px;
+    }
+    .basket_main {
+        width: 350px;
+    }
+
+    .basket-img {
+        width: 60px; /* Уменьшение размера изображения для мобильных */
+        height: 60px;
+    }
+
+    .basket-name {
+        font-size: 16px; /* Уменьшение размера текста */
+        margin: 10px 0; /* Отступы вокруг текста */
+    }
+
+    .basket-btns_quantity {
+        width: 100%; /* Кнопки займут всю ширину */
+        justify-content: space-between; /* Равномерное распределение кнопок */
+        padding: 5px; /* Уменьшение внутренних отступов */
+    }
+
+    .basket-btns_quantity p {
+        font-size: 14px; /* Уменьшение размера текста */
+    }
+
+    .basket-quantity-price {
+        font-size: 16px; /* Уменьшение цены */
+        margin-top: 10px; /* Добавление отступа сверху */
+        text-align: right; /* Выравнивание по правому краю */
+        width: 100%; /* Занять всю ширину */
+    }
+}
+
+
+
 .myapp-input-email, .myapp-input-password {
     border: 3px solid var(--main-color);
     border-radius: 31px;
@@ -98,6 +263,9 @@ body {
     border: 1px solid var(--main-color); 
     background-color: transparent;
     font-weight: 600;
+    padding: 20px;
+    margin: 5px;
+
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -327,6 +495,8 @@ body {
 .name-deviceitem {
     align-self: center;
     color: white;
+    margin: 7px 5px;
+    font-size: 16px;
 
 }
 
@@ -343,11 +513,18 @@ body {
 .btn-deviceitem {
     border-radius: 20px;
     width: 100%;
-    padding: 5px;
+    padding: 3px;
     border: none;
+    font-size: 15px;
+    margin-top: 4px;
     font-weight: 600;
     background-color: var(--text-color);
     color: var(--main-bg-color);
+}
+
+.btn-deviceitem:active, .btn-deviceitem:focus {
+    background-color: rgb(223, 223, 223) !important;
+
 }
 
 .btn-deviceitem:hover {
@@ -370,7 +547,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #121212;
     padding: 20px;
 }
 
@@ -445,20 +621,17 @@ body {
   /* Стили для характеристик */
 .device-specs {
     background-color: #121212;
-    color: #b0b0b0;
+    color: #ffffff;
     padding: 20px;
-}
-
-.device-specs h1 {
-    color: #8bc34a;
+    margin-top: 30px;
 }
 
 .device-specs .spec-row {
-    padding: 10px;
+    padding: 20px;
 }
 
-.device-specs .spec-row:nth-child(even) {
-    background-color: #1e1e1e;
+.spec-row__span {
+    font-weight: 600;
 }
 
 .col-type_brand {
@@ -467,4 +640,38 @@ body {
 .col-devices {
     flex: 3 0 0%;
 
+}
+
+
+/* DevicePage.js */
+.devicepage_name {
+    font-size: 20px;
+}
+
+.devicepage_price {
+    color: white;
+}
+
+.filters-hr {
+    color: white;
+}
+
+/* .card-deviceitem {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* расстояние между карточками 
+}
+
+.img-deviceitem {
+    justify-self: center;
+} */
+
+.img-name-device {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.no-products-message {
+    color: white;
+    margin: 50px;
 }

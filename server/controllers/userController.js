@@ -1,7 +1,7 @@
 const ApiError = require('../error/ApiError');
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {User, Basket} = require('../models/models')
+const {User, Basket, BasketDevice} = require('../models/models')
 
 // создание корзины для каждого пользователя, а также регистрация и выдача роли 
 
@@ -26,7 +26,7 @@ class UserController {
         }
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await User.create({email, password: hashPassword,  role: role || 'USER'})
-        const basket = await Basket.create({userId: user.id})
+        const basket = await Basket.create({userId: user.id}) 
         const token = generateJwt(user.id, user.email, user.role)
         return res.json({token})
     }
@@ -50,6 +50,33 @@ class UserController {
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
         return res.json({token})
     }
+
+
 }
 
 module.exports = new UserController()
+
+
+    // async addToBasket(req, res) {
+    //     const { userId, deviceId, quantity } = req.body;
+        
+    //     // Поиск корзины пользователя
+    //     let basket = await Basket.findOne({ where: { userId } });
+    //     if (!basket) {
+    //         basket = await Basket.create({ userId });
+    //     }
+        
+    //     // Поиск товара в корзине
+    //     let basketDevice = await BasketDevice.findOne({
+    //         where: { basketId: basket.id, deviceId }
+    //     });
+        
+    //     if (basketDevice) {
+    //         basketDevice.quantity += quantity;
+    //         await basketDevice.save();
+    //     } else {
+    //         await BasketDevice.create({ basketId: basket.id, deviceId, quantity });
+    //     }
+        
+    //     return res.json({ message: 'Товар добавлен в корзину' });
+    // }

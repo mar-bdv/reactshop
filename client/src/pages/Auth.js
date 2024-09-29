@@ -41,6 +41,11 @@ const Auth = observer(() => {
 
 
     const click = async () => {
+        if (!email.trim() || !password.trim()) {
+            alert("Пожалуйста, заполните все поля!");
+            return;
+        }
+    
         try {
             let data;
             if (isLogin) {
@@ -57,9 +62,12 @@ const Auth = observer(() => {
             //navigate(SHOP_ROUTE);
 
         } catch (e) {
-            console.log(e.response ? e.response.data : e.message);
-
-            alert("ошибка в Auth")
+             // Проверяем, пришел ли ответ от сервера с полем data.message
+            if (e.response && e.response.data && e.response.data.message) {
+                alert(e.response.data.message); // Выводим сообщение из контроллера
+            } else {
+                alert("Произошла ошибка. Попробуйте еще раз.");
+            }
         }
     }
 

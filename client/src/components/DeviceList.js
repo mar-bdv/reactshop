@@ -9,12 +9,17 @@ import DeviceItem from './DeviceItem';
 const DeviceList = observer(() => { 
     const { device } = useContext(Context)
     return (
-        <Row className='row-deviceitem'>
-            {device.devices.map(device => 
-                <DeviceItem key={device.id} device={device}/>
-                
-            )} 
-        </Row>
+        <>
+            {device.devices.length === 0 ? (
+                <div className="no-products-message">Не найдено товаров.</div>
+            ) : (
+                <Row>
+                    {device.devices.map(deviceItem => (
+                        <DeviceItem key={deviceItem.id} device={deviceItem} />
+                    ))}
+                </Row>
+            )}
+        </>
     );
 });
 

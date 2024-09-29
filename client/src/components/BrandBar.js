@@ -25,19 +25,20 @@ const BrandBar = observer(() => {
         // </Row>
             <>
                 <h1 className='heading-brandbar'>Бренды</h1>
+                <hr className='filters-hr'/>
 
                 <ListGroup className='brandbar'>
 
-                {device.brands.map(brand =>
-                    <ListGroup.Item 
-                        className='p-3 brandbar-item'
-                        onClick={() => device.setSelectedBrand(brand)}
-                        
-                        key={brand.id}>
+                    {device.brands.map(brand =>
+                        <ListGroup.Item 
+                            className='p-3 brandbar-item'
+                            onClick={() => device.setSelectedBrand(brand)}
                             
-                            {brand.name}
-                    </ListGroup.Item>
-                )}
+                            key={brand.id}>
+                                
+                                {brand.name}
+                        </ListGroup.Item>
+                    )}
                 </ListGroup>
             </>
 
